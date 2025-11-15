@@ -12,7 +12,7 @@ const posts = [
   {
     title: "ASSA 3.2 发布：引入强化学习调度引擎",
     category: "Tech" as Category,
-    summary: "最新版本ASSA将强化学习算法应用于任务调度，实现复杂工序自适应排序。",
+    summary: "最新版本 ASSA 将强化学习算法应用于任务调度，实现复杂工序自适应排序。",
     date: "2024-06-01",
   },
   {
@@ -30,13 +30,13 @@ const posts = [
   {
     title: "全球合作伙伴计划启动",
     category: "Market" as Category,
-    summary: "面向全球开放技术合作与联合研发机会，推动AI农业生态共建。",
+    summary: "面向全球开放技术合作与联合研发机会，推动 AI 农业生态共建。",
     date: "2024-04-05",
   },
   {
-    title: "AI育种模型在多场景验证成功",
+    title: "AI 育种模型在多场景验证成功",
     category: "Tech" as Category,
-    summary: "AI模型在不同气候与饲养模式下验证遗传增益稳定性。",
+    summary: "AI 模型在不同气候与饲养模式下验证遗传增益稳定性。",
     date: "2024-03-30",
   },
 ];
@@ -57,34 +57,33 @@ export default function NewsPage() {
       />
 
       <section className="section-container">
-        <SectionTitle
-          kicker="Filter"
-          title="按类别浏览"
-          subtitle="Tech / Research / Group / Market"
-        />
+        <SectionTitle kicker="Filter" title="按类别浏览" subtitle="Tech / Research / Group / Market" />
         <div className="mt-10 flex flex-wrap gap-3">
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setActiveCategory(category)}
-              className={`rounded-full border px-4 py-2 text-xs uppercase tracking-[0.35em] transition ${
-                activeCategory === category
-                  ? "border-primary bg-primary text-secondary"
-                  : "border-accent/30 text-accent/70 hover:border-primary/60"
-              }`}
-            >
-              {category}
-            </button>
-          ))}
+          {categories.map((category) => {
+            const isActive = activeCategory === category;
+            return (
+              <button
+                key={category}
+                onClick={() => setActiveCategory(category)}
+                className={`rounded-full border px-4 py-2 text-xs uppercase tracking-[0.35em] transition ${
+                  isActive
+                    ? "border-primary bg-primary text-white"
+                    : "border-accent/40 text-secondary/60 hover:border-primary/60 hover:text-secondary"
+                }`}
+              >
+                {category}
+              </button>
+            );
+          })}
         </div>
 
         <div className="mt-12 grid gap-8 md:grid-cols-2">
           {filtered.map((post) => (
-            <article key={post.title} className="rounded-3xl border border-accent/15 bg-secondary/60 p-8">
-              <p className="text-xs uppercase tracking-[0.3em] text-primary/70">{post.category}</p>
-              <h3 className="mt-4 text-xl font-semibold text-light">{post.title}</h3>
-              <p className="mt-3 text-sm text-accent/70">{post.summary}</p>
-              <p className="mt-6 text-xs text-accent/50">{post.date}</p>
+            <article key={post.title} className="grid-card">
+              <p className="text-xs uppercase tracking-[0.3em] text-secondary/50">{post.category}</p>
+              <h3 className="mt-4 text-xl font-semibold text-secondary">{post.title}</h3>
+              <p className="mt-3 text-sm text-secondary/70">{post.summary}</p>
+              <p className="mt-6 text-xs text-secondary/60">{post.date}</p>
             </article>
           ))}
         </div>

@@ -12,7 +12,7 @@ const jobs = [
   {
     title: "AI Genetics Scientist / AI育种科学家",
     location: "Fuzhou · Full-time",
-    description: "负责AI遗传模型构建，整合多源数据提升遗传增益。",
+    description: "负责 AI 遗传模型构建，整合多源数据提升遗传增益。",
   },
   {
     title: "ASSA Product Architect / 操作系统架构师",
@@ -22,7 +22,7 @@ const jobs = [
   {
     title: "Green Farm Sustainability Lead / 绿色农场负责人",
     location: "Taining Base · Full-time",
-    description: "负责无抗生态体系构建与ESG指标监控。",
+    description: "负责无抗生态体系构建与 ESG 指标监控。",
   },
 ];
 
@@ -42,17 +42,17 @@ export default function CareersPage() {
           subtitle="在郑氏农业科技集团，人才的多维度与跨界协作是核心。"
         />
         <div className="mt-10 grid gap-8 md:grid-cols-2">
-          <div className="rounded-3xl border border-accent/15 bg-secondary/60 p-8">
-            <h3 className="text-lg font-semibold text-light">What We Believe</h3>
-            <ul className="mt-4 space-y-3 text-sm text-accent/70">
+          <div className="grid-card">
+            <h3 className="text-lg font-semibold text-secondary">What We Believe</h3>
+            <ul className="mt-4 space-y-3 text-sm text-secondary/70">
               {culture.map((item) => (
                 <li key={item}>• {item}</li>
               ))}
             </ul>
           </div>
-          <div className="rounded-3xl border border-accent/15 bg-secondary/60 p-8">
-            <h3 className="text-lg font-semibold text-light">Benefits</h3>
-            <ul className="mt-4 space-y-3 text-sm text-accent/70">
+          <div className="grid-card">
+            <h3 className="text-lg font-semibold text-secondary">Benefits</h3>
+            <ul className="mt-4 space-y-3 text-sm text-secondary/70">
               <li>• 创新实验经费与全球交流计划</li>
               <li>• 弹性工作制与远程协作支持</li>
               <li>• 绿色健康的工作生活环境</li>
@@ -69,10 +69,10 @@ export default function CareersPage() {
         />
         <div className="mt-10 space-y-6">
           {jobs.map((job) => (
-            <div key={job.title} className="rounded-3xl border border-primary/20 bg-secondary/60 p-6">
-              <p className="text-xs uppercase tracking-[0.3em] text-primary/70">{job.location}</p>
-              <h3 className="mt-3 text-xl font-semibold text-light">{job.title}</h3>
-              <p className="mt-2 text-sm text-accent/70">{job.description}</p>
+            <div key={job.title} className="grid-card">
+              <p className="text-xs uppercase tracking-[0.3em] text-secondary/50">{job.location}</p>
+              <h3 className="mt-3 text-xl font-semibold text-secondary">{job.title}</h3>
+              <p className="mt-2 text-sm text-secondary/70">{job.description}</p>
             </div>
           ))}
         </div>
@@ -84,7 +84,7 @@ export default function CareersPage() {
           title="与我们对话"
           subtitle="Send your portfolio, GitHub, or research summary — we read every submission."
         />
-        <div className="mt-10 rounded-3xl border border-accent/15 bg-secondary/60 p-8 text-sm text-accent/70">
+        <div className="mt-10 surface-card text-sm text-secondary/70">
           <p>邮箱 Email：talent@zhengshi.ai</p>
           <p className="mt-3">We encourage bilingual applications. 请附上中英文简历。</p>
         </div>

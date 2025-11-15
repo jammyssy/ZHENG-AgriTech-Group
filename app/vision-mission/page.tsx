@@ -1,10 +1,29 @@
 import PageHero from "@/components/PageHero";
 import SectionTitle from "@/components/SectionTitle";
 
+const missionPillars = [
+  {
+    title: "AI Genetics Model",
+    detail: "融合表型、基因组、环境数据的自研模型，为蓝耳/非瘟双阴核心群体提供持续进化的遗传优势。",
+  },
+  {
+    title: "Smart Agriculture System ASSA",
+    detail: "智慧农场操作系统连接传感器、自动化设备与管理流程，形成实时可控的数字大脑。",
+  },
+  {
+    title: "Green Farm Ecology",
+    detail: "泰宁生态基地构建无抗、循环的 Warm Earth Beige 生态样板，实现碳中和与动物福祉。",
+  },
+  {
+    title: "Global Collaboration",
+    detail: "联合科研机构、产业伙伴与政策平台，共同推进农业科技的开放创新。",
+  },
+];
+
 const values = [
   {
     title: "Precision",
-    description: "以数据精度驱动遗传改良与生产决策，确保每一步都是可追踪、可验证的。",
+    description: "以数据精度驱动遗传改良与生产决策，确保可追踪、可验证。",
   },
   {
     title: "Integrity",
@@ -12,11 +31,11 @@ const values = [
   },
   {
     title: "Co-evolution",
-    description: "与合作伙伴、生态系统共同成长，推动农业科技产业链协同升级。",
+    description: "与合作伙伴与生态系统共同成长，推动产业协同升级。",
   },
   {
     title: "Sustainability",
-    description: "以碳中和与绿色生态为目标，设计可持续、循环的农业模式。",
+    description: "以碳中和与绿色生态为目标，设计循环农业模式。",
   },
 ];
 
@@ -25,7 +44,7 @@ export default function VisionMissionPage() {
     <div className="pb-32">
       <PageHero
         kicker="愿景使命 Vision & Mission"
-        title="成为全球领先的AI农业操作系统赋能者"
+        title="成为全球领先的 AI 农业操作系统赋能者"
         subtitle="Our purpose is to orchestrate intelligent genetics, autonomous farm operations, and regenerative ecosystems that secure healthy protein for humanity."
       />
 
@@ -33,11 +52,14 @@ export default function VisionMissionPage() {
         <SectionTitle
           kicker="Vision"
           title="Vision 愿景"
-          subtitle="构建一个AI协同、生态友好、完全透明的农业新世界。"
+          subtitle="构建一个 AI 协同、生态友好、完全透明的农业新世界。"
         />
-        <div className="mt-10 rounded-3xl border border-primary/20 bg-secondary/60 p-10">
-          <p className="text-lg leading-relaxed text-accent/70">
-            我们的愿景是打造一个数据驱动、算法协同的农业生态网络。在这个网络中，遗传进化、生产运营与生态循环彼此反馈，共享数据，形成自学习的农业系统。Zhengshi AgriTech Group将以开放的技术平台连接全球合作伙伴，共同守护粮食安全与地球生态。
+        <div className="mt-10 surface-card space-y-4 text-lg leading-relaxed text-secondary/75">
+          <p>
+            我们的愿景是打造一个数据驱动、算法协同的农业生态网络。在这个网络中，遗传进化、生产运营与生态循环彼此反馈，共享数据，形成自学习的农业系统。
+          </p>
+          <p>
+            Zhengshi AgriTech Group 将以开放的技术平台连接全球合作伙伴，共同守护粮食安全与地球生态，为下一代提供健康、可信赖的食品来源。
           </p>
         </div>
       </section>
@@ -48,31 +70,13 @@ export default function VisionMissionPage() {
           title="Mission 使命"
           subtitle="以科技重塑农业未来，让每一份食品都来自智能、绿色、透明的体系。"
         />
-        <div className="mt-10 grid gap-8 md:grid-cols-2">
-          <div className="rounded-3xl border border-accent/15 bg-secondary/60 p-8">
-            <h3 className="text-xl font-semibold text-light">AI Genetics Model</h3>
-            <p className="mt-3 text-sm text-accent/70">
-              通过融合表型、基因组、环境数据的AI模型，构建自主种源，确保蓝耳/非瘟双阴的高健康群体，为行业提供可复制的遗传标准。
-            </p>
-          </div>
-          <div className="rounded-3xl border border-accent/15 bg-secondary/60 p-8">
-            <h3 className="text-xl font-semibold text-light">Smart Agriculture System ASSA</h3>
-            <p className="mt-3 text-sm text-accent/70">
-              以ASSA智慧操作系统连接传感器、智能设备与管理流程，实现实时洞察、自动控制与风险预警，打造数字化的农场大脑。
-            </p>
-          </div>
-          <div className="rounded-3xl border border-accent/15 bg-secondary/60 p-8">
-            <h3 className="text-xl font-semibold text-light">Green Farm Ecology</h3>
-            <p className="mt-3 text-sm text-accent/70">
-              在泰宁等基地建立无抗、绿色、循环的生态体系，让生产与环境实现共生，为可持续农业提供标准化样板。
-            </p>
-          </div>
-          <div className="rounded-3xl border border-accent/15 bg-secondary/60 p-8">
-            <h3 className="text-xl font-semibold text-light">Global Collaboration</h3>
-            <p className="mt-3 text-sm text-accent/70">
-              联合科研院校、产业伙伴、政策机构，搭建开放协同的AI农业生态，共同推进科技成果转化与全球农业升级。
-            </p>
-          </div>
+        <div className="mt-12 grid gap-8 md:grid-cols-2">
+          {missionPillars.map((pillar) => (
+            <div key={pillar.title} className="grid-card">
+              <h3 className="text-lg font-semibold text-secondary">{pillar.title}</h3>
+              <p className="mt-3 text-sm text-secondary/70">{pillar.detail}</p>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -84,9 +88,9 @@ export default function VisionMissionPage() {
         />
         <div className="mt-10 grid gap-8 md:grid-cols-4">
           {values.map((value) => (
-            <div key={value.title} className="rounded-3xl border border-accent/15 bg-secondary/60 p-6">
-              <h3 className="text-lg font-semibold text-light">{value.title}</h3>
-              <p className="mt-3 text-sm text-accent/70">{value.description}</p>
+            <div key={value.title} className="grid-card">
+              <h3 className="text-lg font-semibold text-secondary">{value.title}</h3>
+              <p className="mt-3 text-sm text-secondary/70">{value.description}</p>
             </div>
           ))}
         </div>

@@ -1,13 +1,22 @@
 # Zhengshi AgriTech Group Website
 
-This repository contains the complete Next.js + Tailwind CSS codebase for **Zhengshi AgriTech Group (郑氏农业科技集团)** — a future-oriented AI agriculture technology platform with a minimal, Apple/Tesla-inspired visual language.
+This repository contains the complete Next.js + Tailwind CSS codebase for **郑氏农业科技集团 (Zhengshi AgriTech Group)** — a future-oriented AI agriculture technology platform with a bright, Apple/Tesla-inspired, biotech-clean aesthetic.
 
 ## ✨ Tech Stack
 - [Next.js 14 (App Router)](https://nextjs.org/)
 - [React 18](https://react.dev/)
 - [Tailwind CSS 3](https://tailwindcss.com/)
-- [Framer Motion](https://www.framer.com/motion/)
 
+## 🎨 Design System
+- **背景 Background**: Pure white `#FFFFFF`
+- **Primary (科技绿 / Agritech Green)**: `#3EB489`
+- **Secondary (岩石灰 / Stone Gray)**: `#2A2D33`
+- **Accent (未来银 / Future Silver)**: `#AEB7C4`
+- **AI Blue (数据蓝)**: `#4AA8FF`
+- **Warm Earth Beige**: `#D9CBB8` (micro accents only)
+- **Typography**: Inter / SF Pro Display / HarmonyOS Sans for bilingual EN + 中文 copy
+
+All sections use a white foundation with soft shadows, subtle gradients, and restrained pops of green and AI blue to communicate biotech-grade precision.
 
 ## 📂 Project Structure
 ```
@@ -15,22 +24,24 @@ This repository contains the complete Next.js + Tailwind CSS codebase for **Zhen
 ├── app/
 │   ├── layout.tsx          # Global layout with navigation, footer, metadata
 │   ├── page.tsx            # Homepage
-│   ├── about/page.tsx      # 企业介绍
-│   ├── vision-mission/...  # 愿景使命
-│   ├── technology/...      # AI × Agriculture Platform
-│   ├── genetics/...        # 源种科技 Zhengshi Genetics
-│   ├── smart-os/...        # ASSA Smart Farming OS
-│   ├── green-farm/...      # Green Farm Ecology
-│   ├── news/...            # 集团动态 / 科技文章
-│   ├── careers/...         # 加入我们
-│   └── contact/...         # 联系我们
-├── components/             # Reusable UI components
-├── public/images/          # Placeholder imagery
-├── tailwind.config.ts      # Custom theme tokens & colors
+│   ├── about/page.tsx      # About Zhengshi
+│   ├── vision-mission/     # Vision & Mission
+│   ├── technology/         # AI × Agriculture Platform
+│   ├── genetics/           # Zhengshi Genetics Division
+│   ├── smart-os/           # ASSA Intelligence System
+│   ├── green-farm/         # Green Farm Ecology Base
+│   ├── news/               # News & Insights
+│   ├── careers/            # Careers
+│   └── contact/            # Contact Us
+├── components/             # Reusable UI components (Navigation, Footer, PageHero, SectionTitle, Floating CTA)
+├── public/                 # Placeholder assets
+├── tailwind.config.ts      # Custom Tailwind theme (brand colors, shadows, fonts)
+├── postcss.config.js
+├── tsconfig.json
 └── README.md
 ```
 
-## 🛠️ Setup
+## 🛠️ Local Development
 1. **Install dependencies**
    ```bash
    npm install
@@ -46,37 +57,17 @@ This repository contains the complete Next.js + Tailwind CSS codebase for **Zhen
    npm run start
    ```
 
-### Common Issue: `createContext is not a function`
-- **Symptoms**: Earlier revisions of this codebase showed a Next.js server error with the stack trace pointing to `framer-motion/dist` and the message `_react__WEBPACK_IMPORTED_MODULE__...createContext is not a function`.
-- **Cause**: The homepage (`app/page.tsx`) previously rendered Framer Motion animations. In the App Router, pages are Server Components by default, and the server runtime only exposes a limited React API without `createContext`. Importing Framer Motion from a Server Component triggered the error.
-- **Resolution**: The project now relies on CSS-driven transitions instead of Framer Motion, eliminating the server/runtime mismatch. If you pulled an older install, remove `node_modules` and reinstall dependencies to ensure the updated package set is used.
+## 📄 Content Highlights
+Every page delivers bilingual (EN + 中文) placeholder copy covering the group’s strategic pillars:
+- AI-driven genetics & disease-free GGP lines (蓝耳/非瘟双阴)
+- ASSA 智慧农场操作系统（Prediction / Operation / Health / Cost）
+- 泰宁绿色生态基地与循环农业体系
+- 新闻、招聘、联系等企业级内容模块
 
+## 🔧 Customization Notes
+- Replace placeholder imagery in `/public` with production visuals.
+- Connect the contact form to your preferred backend or CRM.
+- Tailwind theme tokens can be extended in `tailwind.config.ts` for additional brand-specific shades.
 
-odex/build-complete-website-for-zhengshi-agritech-group-exs3uz
-### Common Issue: `createContext is not a function`
-- **Symptoms**: When running `npm run dev`, the browser shows a Next.js server error with the stack trace pointing to `framer-motion/dist` and the message `_react__WEBPACK_IMPORTED_MODULE__...createContext is not a function`.
-- **Cause**: The homepage (`app/page.tsx`) renders Framer Motion animations. In the App Router, pages are Server Components by default, and the server runtime only exposes a limited React API without `createContext`. Importing Framer Motion from a Server Component triggers this error.
-- **Resolution**: Mark the homepage as a Client Component by placing a top-level `"use client";` directive before its imports. This repository already includes the fix so the development server can run normally locally.
-
-
-## 🎨 Design System
-- **Colors**: Tech Agrigreen `#45C1A1`, Obsidian Black `#1B1D1F`, Stardust Silver `#A9B5C9`, AI Blue `#4AA8FF`, Light Mist `#F4F7F8`
-- **Typography**: Inter / HarmonyOS Sans / Alibaba PuHuiTi
-- **Effects**: Glassmorphism panels, subtle glow shadows, radial AI gradients
-
-## 📦 Pages & Content
-Each page combines bilingual (EN + 中文) placeholder content aligned with brand pillars:
-- AI育种模型（AI Genetics Model）
-- ASSA智慧猪场AI操作系统
-- 数字化养殖技术
-- 自主种源 GGP 双阴育种体系
-- 无抗绿色生态养殖（泰宁基地）
-- 生物安全与疾病净化（蓝耳/非瘟双阴）
-
-## 🔄 Customization
-- Replace `/public/images/ai-grid.png` with production-grade visuals.
-- Update copy, metrics, and data visualizations with live content.
-- Integrate actual forms or APIs by extending the placeholders.
-
-## 📄 License
+## 📜 License
 Proprietary — Zhengshi AgriTech Group. All rights reserved.

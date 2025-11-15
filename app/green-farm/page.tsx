@@ -23,6 +23,13 @@ const initiatives = [
   "消费者可视化平台提供全链路透明追溯",
 ];
 
+const metrics = [
+  { label: "Water Quality Index", value: "98/100" },
+  { label: "Carbon Intensity", value: "-32%" },
+  { label: "Biodiversity", value: "+18 株", note: "本土植物复育" },
+  { label: "Animal Wellness", value: "96%", note: "行为舒适度" },
+];
+
 export default function GreenFarmPage() {
   return (
     <div className="pb-32">
@@ -40,9 +47,9 @@ export default function GreenFarmPage() {
         />
         <div className="mt-10 grid gap-8 md:grid-cols-3">
           {ecosystem.map((item) => (
-            <div key={item.title} className="rounded-3xl border border-accent/15 bg-secondary/60 p-8">
-              <h3 className="text-lg font-semibold text-light">{item.title}</h3>
-              <p className="mt-3 text-sm text-accent/70">{item.description}</p>
+            <div key={item.title} className="grid-card">
+              <h3 className="text-lg font-semibold text-secondary">{item.title}</h3>
+              <p className="mt-3 text-sm text-secondary/70">{item.description}</p>
             </div>
           ))}
         </div>
@@ -54,8 +61,8 @@ export default function GreenFarmPage() {
           title="无抗、绿色、可持续体系"
           subtitle="将生物安全、环境保护与消费信任整合为统一标准。"
         />
-        <div className="mt-10 rounded-3xl border border-accent/15 bg-secondary/60 p-8">
-          <ul className="space-y-4 text-sm text-accent/70">
+        <div className="mt-10 surface-card">
+          <ul className="space-y-4 text-sm text-secondary/70">
             {initiatives.map((initiative) => (
               <li key={initiative}>• {initiative}</li>
             ))}
@@ -70,10 +77,11 @@ export default function GreenFarmPage() {
           subtitle="实时监控支撑绿色运营。"
         />
         <div className="mt-10 grid gap-6 md:grid-cols-4">
-          {["Water Quality Index", "Carbon Intensity", "Biodiversity", "Animal Wellness"].map((metric) => (
-            <div key={metric} className="rounded-3xl border border-primary/20 bg-secondary/60 p-6 text-center">
-              <p className="text-xs uppercase tracking-[0.3em] text-primary/70">{metric}</p>
-              <p className="mt-4 text-2xl font-semibold text-light">{Math.round(Math.random() * 30 + 60)}%</p>
+          {metrics.map((metric) => (
+            <div key={metric.label} className="grid-card text-center">
+              <p className="text-xs uppercase tracking-[0.3em] text-secondary/50">{metric.label}</p>
+              <p className="mt-4 text-2xl font-semibold text-secondary">{metric.value}</p>
+              {metric.note && <p className="text-xs text-secondary/60">{metric.note}</p>}
             </div>
           ))}
         </div>

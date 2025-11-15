@@ -17,10 +17,16 @@ const lineage = [
 ];
 
 const metrics = [
-  { label: "年度GGP输出", value: "32,000+" },
+  { label: "年度 GGP 输出", value: "32,000+" },
   { label: "蓝耳/非瘟检测阳性率", value: "0%" },
   { label: "遗传增益速度", value: "+18% YoY" },
   { label: "合作核心场", value: "20+" },
+];
+
+const safeguards = [
+  "多点实时监测与分区隔离管理，构建预防前置的生物安全体系。",
+  "PCR + 基因测序 + AI 异常识别，形成三重验证机制。",
+  "全生命周期追踪系统对接 ASSA，异常 15 分钟内响应。",
 ];
 
 export default function GeneticsPage() {
@@ -40,9 +46,9 @@ export default function GeneticsPage() {
         />
         <div className="mt-10 grid gap-8 md:grid-cols-3">
           {lineage.map((item) => (
-            <div key={item.name} className="rounded-3xl border border-accent/15 bg-secondary/60 p-8">
-              <h3 className="text-lg font-semibold text-light">{item.name}</h3>
-              <p className="mt-3 text-sm text-accent/70">{item.description}</p>
+            <div key={item.name} className="grid-card">
+              <h3 className="text-lg font-semibold text-secondary">{item.name}</h3>
+              <p className="mt-3 text-sm text-secondary/70">{item.description}</p>
             </div>
           ))}
         </div>
@@ -54,13 +60,23 @@ export default function GeneticsPage() {
           title="蓝耳/非瘟双阴体系"
           subtitle="构建多层级的检测、防护、净化流程，确保核心群体持续稳定。"
         />
-        <div className="mt-10 space-y-6 text-sm text-accent/70">
-          <p>
-            通过多点实时监测、分区隔离管理与基因检测组合，形成“预防-检测-隔离-净化”闭环。与国家级实验室合作，采用PCR、基因测序与AI异常识别技术，保障双阴状态长期维持。
-          </p>
-          <p>
-            我们的全生命周期追踪系统覆盖种猪繁育、育肥、出栏每个环节，并与ASSA操作系统互通，确保任何异常在15分钟内得到响应。
-          </p>
+        <div className="mt-10 grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
+          <div className="space-y-4 text-sm text-secondary/70">
+            <p>
+              通过多点实时监测、分区隔离管理与基因检测组合，形成“预防-检测-隔离-净化”闭环。与国家级实验室合作，采用 PCR、基因测序与 AI 异常识别技术，保障双阴状态长期维持。
+            </p>
+            <p>
+              我们的全生命周期追踪系统覆盖种猪繁育、育肥、出栏每个环节，并与 ASSA 操作系统互通，实现任何风险的快速响应与可视化追踪。
+            </p>
+          </div>
+          <div className="surface-card space-y-3">
+            <h3 className="text-lg font-semibold text-secondary">安全防护三要素</h3>
+            <ul className="space-y-2 text-sm text-secondary/70">
+              {safeguards.map((item) => (
+                <li key={item}>• {item}</li>
+              ))}
+            </ul>
+          </div>
         </div>
       </section>
 
@@ -72,9 +88,9 @@ export default function GeneticsPage() {
         />
         <div className="mt-10 grid gap-6 md:grid-cols-4">
           {metrics.map((metric) => (
-            <div key={metric.label} className="rounded-3xl border border-primary/20 bg-secondary/60 p-6 text-center">
-              <p className="text-xs uppercase tracking-[0.3em] text-primary/70">{metric.label}</p>
-              <p className="mt-4 text-2xl font-semibold text-light">{metric.value}</p>
+            <div key={metric.label} className="grid-card text-center">
+              <p className="text-xs uppercase tracking-[0.3em] text-secondary/50">{metric.label}</p>
+              <p className="mt-4 text-2xl font-semibold text-secondary">{metric.value}</p>
             </div>
           ))}
         </div>

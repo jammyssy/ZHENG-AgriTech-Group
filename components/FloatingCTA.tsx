@@ -5,9 +5,9 @@ export default function FloatingCTA() {
     <div className="floating-cta">
       <Link
         href="/contact"
-        className="flex items-center space-x-3 rounded-full bg-primary px-6 py-3 font-semibold text-secondary shadow-glow transition hover:-translate-y-1"
+        className="flex items-center gap-3 rounded-full border border-primary/40 bg-white px-6 py-3 text-sm font-semibold text-secondary shadow-subtle transition hover:-translate-y-1"
       >
-        <span className="h-2 w-2 rounded-full bg-secondary" />
+        <span className="h-2.5 w-2.5 rounded-full bg-primary" />
         <span>预约战略咨询 · Schedule Consultation</span>
       </Link>
     </div>
