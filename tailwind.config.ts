@@ -1,30 +1,34 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
-  content: [
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
+  content: ["./app/**/*.{js,ts,jsx,tsx,mdx}", "./components/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
     extend: {
       colors: {
-        primary: "#45C1A1",
-        secondary: "#1B1D1F",
-        accent: "#A9B5C9",
-        light: "#F4F7F8",
+        background: "#FFFFFF",
+        primary: "#3EB489",
+        secondary: "#2A2D33",
+        accent: "#AEB7C4",
         ai: "#4AA8FF",
+        earth: "#D9CBB8",
+        soft: "#F5F7FA",
       },
       fontFamily: {
         sans: ["Inter", "'HarmonyOS Sans SC'", "'PingFang SC'", "system-ui", "sans-serif"],
-        display: ["Inter", "'Alibaba PuHuiTi'", "'SF Pro Display'", "sans-serif"],
-      },
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(circle at center, rgba(69,193,161,0.35), rgba(27,29,31,0.95))",
-        "gradient-ai": "radial-gradient(circle at 20% 20%, rgba(74,168,255,0.45), transparent 60%), radial-gradient(circle at 80% 0%, rgba(69,193,161,0.35), transparent 55%), linear-gradient(135deg, #0a1114, #101418)",
+        display: ["'SF Pro Display'", "Inter", "'Alibaba PuHuiTi'", "sans-serif"],
       },
       boxShadow: {
-        glow: "0 0 40px rgba(74, 168, 255, 0.25)",
-        panel: "0 20px 50px rgba(0,0,0,0.35)",
+        soft: "0 20px 60px rgba(42, 45, 51, 0.08)",
+        subtle: "0 10px 30px rgba(174, 183, 196, 0.25)",
+      },
+      borderRadius: {
+        large: "2.5rem",
+      },
+      backgroundImage: {
+        "hero-accent":
+          "radial-gradient(circle at top right, rgba(74, 168, 255, 0.18), transparent 55%), radial-gradient(circle at bottom left, rgba(62, 180, 137, 0.22), transparent 60%)",
+        "divider-fade":
+          "linear-gradient(to right, rgba(62, 180, 137, 0), rgba(62, 180, 137, 0.45), rgba(62, 180, 137, 0))",
       },
     },
   },

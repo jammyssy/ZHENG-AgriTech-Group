@@ -3,28 +3,38 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>郑氏农业科技集团 · 体验预览</title>
+    <title>郑氏农业科技集团 · 视觉预览</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
         theme: {
           extend: {
             colors: {
-              primary: "#45C1A1",
-              secondary: "#1B1D1F",
-              accent: "#A9B5C9",
-              light: "#F4F7F8",
+              primary: "#3EB489",
+              secondary: "#2A2D33",
+              accent: "#AEB7C4",
               ai: "#4AA8FF",
-            },
-            backgroundImage: {
-              "gradient-ai": "radial-gradient(circle at top right, rgba(74,168,255,0.22), transparent 55%), radial-gradient(circle at bottom left, rgba(69,193,161,0.18), transparent 50%)",
+              soft: "#F5F7FA",
+              earth: "#D9CBB8",
             },
             boxShadow: {
-              glow: "0 0 35px rgba(69,193,161,0.35)",
-              panel: "0 18px 60px rgba(12,16,22,0.55)",
+              soft: "0 20px 60px rgba(42,45,51,0.08)",
+              subtle: "0 10px 30px rgba(174,183,196,0.25)",
             },
-            backdropBlur: {
-              18: "18px",
+            fontFamily: {
+              sans: [
+                "Inter",
+                "'SF Pro Display'",
+                "'HarmonyOS Sans'",
+                "system-ui",
+                "sans-serif",
+              ],
+            },
+            backgroundImage: {
+              "hero-accent":
+                "radial-gradient(circle at top right, rgba(74,168,255,0.2), transparent 55%), radial-gradient(circle at bottom left, rgba(62,180,137,0.18), transparent 60%)",
+              "divider-fade":
+                "linear-gradient(to right, rgba(62,180,137,0), rgba(62,180,137,0.45), rgba(62,180,137,0))",
             },
           },
         },
@@ -32,595 +42,247 @@
     </script>
     <style>
       body {
-        font-family: 'Inter', 'SF Pro Display', 'Alibaba PuHuiTi', 'HarmonyOS Sans', system-ui, sans-serif;
-        background: #050607;
-        color: #f4f7f8;
-      }
-      .glass {
-        background: rgba(17, 20, 26, 0.72);
-        backdrop-filter: blur(18px);
-      }
-      .section-width {
-        width: min(1240px, 90vw);
-        margin-left: auto;
-        margin-right: auto;
-      }
-      .grid-sheen {
-        background: linear-gradient(rgba(69,193,161,0.04), rgba(69,193,161,0)),
-          url('/public/images/ai-grid.png');
-        background-size: cover;
-        background-position: center;
+        font-family: "Inter", "SF Pro Display", "HarmonyOS Sans", system-ui,
+          sans-serif;
+        background: #ffffff;
+        color: #2a2d33;
       }
     </style>
   </head>
-  <body class="relative">
-    <a
-      href="#contact"
-      class="fixed bottom-8 right-8 z-30 inline-flex items-center gap-3 rounded-full bg-primary px-6 py-3 text-xs font-semibold uppercase tracking-[0.35em] text-secondary shadow-glow"
+  <body class="bg-white">
+    <header
+      class="sticky top-0 z-30 border-b border-accent/30 bg-white/90 backdrop-blur"
     >
-      预约战略咨询
-      <span class="block h-2 w-2 rounded-full bg-secondary"></span>
-    </a>
-
-    <header class="fixed inset-x-0 top-0 z-40">
-      <nav class="mx-auto mt-6 flex w-[92vw] items-center justify-between rounded-full border border-white/5 bg-secondary/70 px-6 py-3 text-sm uppercase tracking-[0.45em] text-accent/70 shadow-panel">
-        <a href="#home" class="flex items-center gap-3 text-light">
-          <span class="grid h-9 w-9 place-items-center rounded-full bg-primary/20 text-primary">Z</span>
-          郑氏农业科技集团
-        </a>
-        <div class="hidden items-center gap-6 text-[0.65rem] md:flex">
-          <a href="#home" class="transition hover:text-primary">Home</a>
-          <a href="#about" class="transition hover:text-primary">About</a>
-          <a href="#vision" class="transition hover:text-primary">Vision</a>
-          <a href="#technology" class="transition hover:text-primary">Platform</a>
-          <a href="#genetics" class="transition hover:text-primary">Genetics</a>
-          <a href="#smart" class="transition hover:text-primary">Smart OS</a>
-          <a href="#green" class="transition hover:text-primary">Green Base</a>
-          <a href="#news" class="transition hover:text-primary">Insights</a>
-          <a href="#careers" class="transition hover:text-primary">Careers</a>
-          <a href="#contact" class="transition hover:text-primary">Contact</a>
+      <nav
+        class="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-4"
+      >
+        <div class="flex items-center gap-3">
+          <span
+            class="grid h-10 w-10 place-items-center rounded-2xl border border-primary/30 bg-white text-lg font-semibold text-primary shadow-soft"
+            >Z</span
+          >
+          <div class="text-sm uppercase tracking-[0.35em] text-secondary/60">
+            Zhengshi AgriTech Group
+          </div>
+        </div>
+        <div
+          class="hidden items-center gap-6 text-xs uppercase tracking-[0.35em] text-secondary/60 md:flex"
+        >
+          <a href="#hero" class="transition hover:text-secondary">Home</a>
+          <a href="#pillars" class="transition hover:text-secondary">Pillars</a>
+          <a href="#technology" class="transition hover:text-secondary"
+            >Technology</a
+          >
+          <a href="#contact" class="transition hover:text-secondary">Contact</a>
         </div>
       </nav>
     </header>
 
-    <main class="space-y-32 pb-40 pt-32" id="home">
-      <!-- Homepage Hero -->
-      <section class="relative overflow-hidden pt-32">
-        <div class="absolute inset-0 bg-gradient-ai opacity-80"></div>
-        <div class="section-width relative">
-          <div class="max-w-3xl space-y-6">
-            <p class="text-xs uppercase tracking-[0.6em] text-accent/70">AI × AGRICULTURE FUTURES</p>
-            <h1 class="text-4xl font-semibold leading-tight md:text-6xl">
-              以科技重塑农业未来 · Zhengshi AgriTech Group
+    <main class="space-y-24 pb-32" id="hero">
+      <section class="mx-auto mt-16 w-full max-w-6xl px-6">
+        <div
+          class="relative overflow-hidden rounded-[2.25rem] border border-accent/40 bg-white p-12 shadow-soft"
+        >
+          <div
+            class="pointer-events-none absolute inset-0 bg-hero-accent opacity-90"
+          ></div>
+          <div class="relative space-y-6">
+            <p class="text-xs uppercase tracking-[0.4em] text-secondary/60">
+              AI × AGRICULTURE FUTURES
+            </p>
+            <h1 class="text-4xl font-semibold leading-tight md:text-5xl">
+              郑氏农业科技集团 · 以科技重塑农业未来
             </h1>
-            <p class="text-lg text-accent/70">
-              We orchestrate AI genetics, smart farming operating systems, and green ecological bases to enable resilient food systems for the next century.
+            <p class="max-w-2xl text-base text-secondary/70">
+              Zhengshi AgriTech Group orchestrates genetics innovation, ASSA
+              smart farming OS, and green ecological bases to build resilient,
+              data-intelligent agriculture for the next century.
             </p>
-            <div class="flex flex-wrap items-center gap-4 text-xs uppercase tracking-[0.35em]">
-              <a href="#technology" class="rounded-full bg-primary px-6 py-3 text-secondary shadow-glow">Explore Platform</a>
-              <a href="#vision" class="rounded-full border border-accent/30 px-6 py-3 text-accent/80">愿景使命</a>
+            <div
+              class="flex flex-wrap items-center gap-4 text-xs uppercase tracking-[0.35em]"
+            >
+              <a
+                href="#technology"
+                class="rounded-full bg-primary px-6 py-3 text-white"
+                >Explore Platform</a
+              >
+              <a
+                href="#pillars"
+                class="rounded-full border border-accent/50 px-6 py-3 text-secondary/70"
+                >核心板块</a
+              >
+            </div>
+          </div>
+          <div
+            class="relative mt-10 grid gap-4 sm:grid-cols-3 md:mt-14"
+            aria-label="Hero statistics"
+          >
+            <div class="rounded-3xl border border-accent/40 bg-white p-6 shadow-subtle">
+              <p class="text-xs uppercase tracking-[0.3em] text-secondary/50">
+                Genomic Precision
+              </p>
+              <p class="mt-3 text-3xl font-semibold text-secondary">99.2%</p>
+              <p class="mt-2 text-xs text-secondary/60">
+                AI育种准确率 · 多维基因组 × 表型模型
+              </p>
+            </div>
+            <div class="rounded-3xl border border-accent/40 bg-white p-6 shadow-subtle">
+              <p class="text-xs uppercase tracking-[0.3em] text-secondary/50">
+                Scenario Response
+              </p>
+              <p class="mt-3 text-3xl font-semibold text-secondary">&lt; 12s</p>
+              <p class="mt-2 text-xs text-secondary/60">
+                ASSA 智能响应 · 实时异常告警与指令下发
+              </p>
+            </div>
+            <div class="rounded-3xl border border-accent/40 bg-white p-6 shadow-subtle">
+              <p class="text-xs uppercase tracking-[0.3em] text-secondary/50">
+                Carbon Intensity
+              </p>
+              <p class="mt-3 text-3xl font-semibold text-secondary">-38%</p>
+              <p class="mt-2 text-xs text-secondary/60">
+                生态碳减排 · 泰宁绿色生态基地年度数据
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Pillars -->
-      <section class="section-width" id="pillars">
-        <div class="space-y-3">
-          <p class="text-xs uppercase tracking-[0.5em] text-primary/70">Core Pillars</p>
-          <h2 class="text-3xl font-semibold">三大板块协同驱动未来农业系统</h2>
-          <p class="max-w-2xl text-sm text-accent/70">
-            源种科技、智慧农牧、绿色生态三位一体，形成闭环数据循环与产业护城河。
+      <section id="pillars" class="mx-auto w-full max-w-6xl px-6">
+        <div class="space-y-4">
+          <p class="text-xs uppercase tracking-[0.35em] text-secondary/60">
+            Core Divisions
+          </p>
+          <h2 class="text-3xl font-semibold">三大板块协同驱动农业未来</h2>
+          <p class="max-w-2xl text-sm text-secondary/70">
+            Zhengshi Genetics · ASSA Smart Farming OS · Green Farm Ecology 形成闭环数据生态。
           </p>
         </div>
-        <div class="mt-12 grid gap-8 md:grid-cols-3">
-          <div class="rounded-[22px] border border-primary/20 bg-secondary/70 p-8 shadow-panel">
-            <h3 class="text-xl font-semibold">源种科技 Zhengshi Genetics</h3>
-            <p class="mt-4 text-sm text-accent/70">
-              AI驱动的GGP双阴种源体系，融合Cedarridge与ACU Fast血统，打造蓝耳/非瘟双阴核心群。
+        <div class="mt-10 grid gap-8 md:grid-cols-3">
+          <div class="rounded-3xl border border-accent/40 bg-white p-8 shadow-subtle">
+            <h3 class="text-lg font-semibold">源种科技</h3>
+            <p class="mt-3 text-sm text-secondary/70">
+              GGP 蓝耳/非瘟双阴纯合群体，融合 Cedarridge 与 ACU Fast 遗传优势。
             </p>
           </div>
-          <div class="rounded-[22px] border border-primary/20 bg-secondary/70 p-8 shadow-panel">
-            <h3 class="text-xl font-semibold">智慧农牧 Smart Farming</h3>
-            <p class="mt-4 text-sm text-accent/70">
-              ASSA智慧猪场操作系统，联接预测、运营、健康与成本模块，实现全流程数据运营。
+          <div class="rounded-3xl border border-accent/40 bg-white p-8 shadow-subtle">
+            <h3 class="text-lg font-semibold">ASSA 智慧农场</h3>
+            <p class="mt-3 text-sm text-secondary/70">
+              AI × IoT 数据中枢贯通饲养、健康、财务，构建数字化农场操作系统。
             </p>
           </div>
-          <div class="rounded-[22px] border border-primary/20 bg-secondary/70 p-8 shadow-panel">
-            <h3 class="text-xl font-semibold">绿色生态 Green Ecology</h3>
-            <p class="mt-4 text-sm text-accent/70">
-              泰宁绿色生态基地，无抗养殖、循环农业与碳中和策略，构建未来生态农场范式。
+          <div class="rounded-3xl border border-accent/40 bg-white p-8 shadow-subtle">
+            <h3 class="text-lg font-semibold">绿色生态基地</h3>
+            <p class="mt-3 text-sm text-secondary/70">
+              泰宁无抗绿色生态示范区，打造循环农业与生态修复并行的未来农场。
             </p>
           </div>
         </div>
       </section>
 
-      <!-- Data Section -->
-      <section class="section-width" id="data">
-        <div class="space-y-3">
-          <p class="text-xs uppercase tracking-[0.5em] text-primary/70">AI Data Fabric</p>
-          <h2 class="text-3xl font-semibold">实时洞察的农业大脑</h2>
-          <p class="max-w-2xl text-sm text-accent/70">
-            ASSA智慧农场数据中枢整合传感、环境、生产与财务数据，以AI算法驱动每一次决策。
+      <section id="technology" class="mx-auto w-full max-w-6xl px-6">
+        <div class="space-y-4">
+          <p class="text-xs uppercase tracking-[0.35em] text-secondary/60">
+            AI Platform
+          </p>
+          <h2 class="text-3xl font-semibold">ASSA Intelligence System</h2>
+          <p class="max-w-2xl text-sm text-secondary/70">
+            Prediction · Operation · Health · Cost Efficiency
           </p>
         </div>
-        <div class="mt-12 grid gap-10 lg:grid-cols-[1.2fr_1fr]">
-          <div class="grid-sheen rounded-[26px] border border-primary/20 p-8">
-            <div class="grid gap-6 md:grid-cols-2">
-              <div class="rounded-2xl border border-primary/20 bg-secondary/80 p-6">
-                <p class="text-xs uppercase tracking-[0.35em] text-primary/70">Production Forecast</p>
-                <p class="mt-3 text-3xl font-semibold">94%</p>
-                <p class="mt-2 text-xs text-accent/60">Simulated data stream · 实时模拟数据</p>
-              </div>
-              <div class="rounded-2xl border border-primary/20 bg-secondary/80 p-6">
-                <p class="text-xs uppercase tracking-[0.35em] text-primary/70">Genetic Gain</p>
-                <p class="mt-3 text-3xl font-semibold">87%</p>
-                <p class="mt-2 text-xs text-accent/60">Simulated data stream · 实时模拟数据</p>
-              </div>
-              <div class="rounded-2xl border border-primary/20 bg-secondary/80 p-6">
-                <p class="text-xs uppercase tracking-[0.35em] text-primary/70">Bio-Security</p>
-                <p class="mt-3 text-3xl font-semibold">99%</p>
-                <p class="mt-2 text-xs text-accent/60">Simulated data stream · 实时模拟数据</p>
-              </div>
-              <div class="rounded-2xl border border-primary/20 bg-secondary/80 p-6">
-                <p class="text-xs uppercase tracking-[0.35em] text-primary/70">Carbon Index</p>
-                <p class="mt-3 text-3xl font-semibold">68%</p>
-                <p class="mt-2 text-xs text-accent/60">Simulated data stream · 实时模拟数据</p>
-              </div>
-            </div>
-            <div class="mt-8 overflow-hidden rounded-2xl border border-accent/20">
-              <img src="/public/images/ai-grid.png" alt="AI data visualization" class="w-full" />
-            </div>
+        <div class="mt-10 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+          <div class="rounded-3xl border border-accent/40 bg-white p-6 shadow-subtle">
+            <p class="text-xs uppercase tracking-[0.35em] text-secondary/50">
+              Prediction
+            </p>
+            <p class="mt-4 text-sm text-secondary/70">
+              AI 模块覆盖生产预测，联动历史数据与实时传感器，构建可执行决策。
+            </p>
           </div>
-          <div class="space-y-6">
-            <div class="rounded-3xl border border-accent/20 bg-secondary/70 p-6 shadow-panel">
-              <h3 class="text-lg font-semibold">AI Breeding Intelligence</h3>
-              <p class="mt-2 text-sm text-accent/70">自研AI育种模型，以多维基因组数据构建未来畜牧遗传优势。</p>
+          <div class="rounded-3xl border border-accent/40 bg-white p-6 shadow-subtle">
+            <p class="text-xs uppercase tracking-[0.35em] text-secondary/50">
+              Operation
+            </p>
+            <p class="mt-4 text-sm text-secondary/70">
+              多基地任务协同排程，确保饲养、检疫、物流的全流程透明。
+            </p>
+          </div>
+          <div class="rounded-3xl border border-accent/40 bg-white p-6 shadow-subtle">
+            <p class="text-xs uppercase tracking-[0.35em] text-secondary/50">
+              Health
+            </p>
+            <p class="mt-4 text-sm text-secondary/70">
+              Bio-Safety Mesh 生物安全网格，实时追踪疫病风险与动物健康。
+            </p>
+          </div>
+          <div class="rounded-3xl border border-accent/40 bg-white p-6 shadow-subtle">
+            <p class="text-xs uppercase tracking-[0.35em] text-secondary/50">
+              Cost
+            </p>
+            <p class="mt-4 text-sm text-secondary/70">
+              数据蓝 AI Blue 指标体系，帮助管理团队洞察成本结构与碳排强度。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="mx-auto w-full max-w-6xl px-6">
+        <div
+          class="rounded-[2rem] border border-accent/40 bg-white p-10 shadow-soft"
+        >
+          <div class="flex flex-col gap-8 lg:flex-row lg:items-center">
+            <div class="lg:w-1/2 space-y-4">
+              <p class="text-xs uppercase tracking-[0.35em] text-secondary/60">
+                Why Zhengshi
+              </p>
+              <h2 class="text-3xl font-semibold">
+                系统化能力，链接未来食品安全
+              </h2>
+              <p class="text-sm text-secondary/70">
+                我们将 AI、遗传、生态与供应链智能协同，提供面向农业未来的整体解决方案。
+              </p>
             </div>
-            <div class="rounded-3xl border border-accent/20 bg-secondary/70 p-6 shadow-panel">
-              <h3 class="text-lg font-semibold">ASSA OS</h3>
-              <p class="mt-2 text-sm text-accent/70">智慧农场操作系统贯通生产全链路，实时洞察运营状态。</p>
-            </div>
-            <div class="rounded-3xl border border-accent/20 bg-secondary/70 p-6 shadow-panel">
-              <h3 class="text-lg font-semibold">Bio-Security</h3>
-              <p class="mt-2 text-sm text-accent/70">蓝耳、非瘟双阴净化体系，保障群体健康与供应稳定。</p>
-            </div>
-            <div class="rounded-3xl border border-accent/20 bg-secondary/70 p-6 shadow-panel">
-              <h3 class="text-lg font-semibold">Sustainable Value</h3>
-              <p class="mt-2 text-sm text-accent/70">绿色、低抗、可持续农场体系为全球食品安全提供新范式。</p>
+            <div class="lg:w-1/2 grid gap-6 sm:grid-cols-2">
+              <div class="rounded-3xl border border-accent/30 bg-white p-6 shadow-subtle">
+                <h3 class="text-base font-semibold">Systems Thinking</h3>
+                <p class="mt-2 text-sm text-secondary/70">
+                  AI × 遗传 × 生态闭环，沉淀长期数据资产。
+                </p>
+              </div>
+              <div class="rounded-3xl border border-accent/30 bg-white p-6 shadow-subtle">
+                <h3 class="text-base font-semibold">Human + Machine</h3>
+                <p class="mt-2 text-sm text-secondary/70">
+                  人机协同的场景化决策引擎，赋能生产团队。
+                </p>
+              </div>
+              <div class="rounded-3xl border border-accent/30 bg-white p-6 shadow-subtle">
+                <h3 class="text-base font-semibold">Bio-Safety</h3>
+                <p class="mt-2 text-sm text-secondary/70">
+                  多层生物安全体系，保障供应链稳定。
+                </p>
+              </div>
+              <div class="rounded-3xl border border-accent/30 bg-white p-6 shadow-subtle">
+                <h3 class="text-base font-semibold">Green Value Chain</h3>
+                <p class="mt-2 text-sm text-secondary/70">
+                  无抗、低碳、可追溯，打造绿色价值网络。
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- About -->
-      <section id="about" class="section-width space-y-12">
-        <div class="space-y-3">
-          <p class="text-xs uppercase tracking-[0.5em] text-primary/70">Group Story</p>
-          <h2 class="text-3xl font-semibold">企业发展与集团架构</h2>
-          <p class="max-w-3xl text-sm text-accent/70">
-            郑氏农业科技集团自1996年启程，从传统养殖企业升级为AI驱动的农业科技集团。我们以系统化思维构建覆盖遗传育种、智慧农牧与绿色生态的全链条。
+      <section id="contact" class="mx-auto w-full max-w-6xl px-6">
+        <div class="rounded-[2rem] border border-accent/40 bg-white p-10 shadow-soft">
+          <h2 class="text-2xl font-semibold">联系与合作</h2>
+          <p class="mt-3 text-sm text-secondary/70">
+            Email: contact@zhengshi.ai · Phone: +86 591 1234 5678
           </p>
-        </div>
-        <div class="grid gap-12 lg:grid-cols-[1.2fr_1fr]">
-          <div class="space-y-8">
-            <div class="rounded-3xl border border-accent/20 bg-secondary/70 p-8 shadow-panel">
-              <h3 class="text-lg font-semibold text-light">时间轴 TimeLine</h3>
-              <ul class="mt-6 space-y-4 text-sm text-accent/70">
-                <li><span class="text-primary">1996</span> · 郑氏农牧创立，聚焦种猪核心群。</li>
-                <li><span class="text-primary">2007</span> · 引进Cedarridge、ACU Fast血统，搭建GGP核心体系。</li>
-                <li><span class="text-primary">2010</span> · 启动数字化养殖项目，实现IoT与数据采集。</li>
-                <li><span class="text-primary">2023</span> · 成立ASSA智慧农场AI操作系统团队。</li>
-                <li><span class="text-primary">Future</span> · 构建全球绿色生态农场网络。</li>
-              </ul>
-            </div>
-            <div class="rounded-3xl border border-accent/20 bg-secondary/70 p-8 shadow-panel">
-              <h3 class="text-lg font-semibold text-light">集团树状结构</h3>
-              <div class="mt-4 grid gap-3 text-sm text-accent/70">
-                <div class="rounded-2xl border border-primary/15 bg-secondary/80 p-4">
-                  <p class="font-semibold text-light">郑氏农业科技集团 HQ</p>
-                  <p class="text-xs text-accent/60">战略规划 / 科技研发中心</p>
-                </div>
-                <div class="rounded-2xl border border-primary/15 bg-secondary/80 p-4">
-                  <p class="font-semibold text-light">源种科技 Zhengshi Genetics</p>
-                  <p class="text-xs text-accent/60">AI育种 / Cedarridge & ACU Fast Lineage</p>
-                </div>
-                <div class="rounded-2xl border border-primary/15 bg-secondary/80 p-4">
-                  <p class="font-semibold text-light">ASSA Smart Farming OS</p>
-                  <p class="text-xs text-accent/60">智慧农牧操作系统 / 数字孪生</p>
-                </div>
-                <div class="rounded-2xl border border-primary/15 bg-secondary/80 p-4">
-                  <p class="font-semibold text-light">Green Farm Ecology 泰宁基地</p>
-                  <p class="text-xs text-accent/60">无抗养殖 / 生态循环 / ESG</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="rounded-[32px] border border-ai/20 bg-gradient-ai p-10 shadow-panel">
-            <h3 class="text-lg font-semibold text-light">Philosophy 哲学</h3>
-            <p class="mt-4 text-sm text-accent/70">
-              科技是农业再设计的核心杠杆。我们以数据驱动、系统思维与生物安全为底层逻辑，构建“AI + 生态 + 可持续”的多层级解决方案，使农业生产进入自动化、透明化与可持续化的新阶段。
-            </p>
-            <p class="mt-6 text-sm text-accent/70">
-              “以科技重塑农业未来”不仅是愿景，更是面向全球食品安全、气候变化与健康消费的系统化行动方案。
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <!-- Vision & Mission -->
-      <section id="vision" class="section-width space-y-12">
-        <div class="space-y-3">
-          <p class="text-xs uppercase tracking-[0.5em] text-primary/70">愿景使命 Vision & Mission</p>
-          <h2 class="text-3xl font-semibold">构建AI驱动的未来农牧系统</h2>
-        </div>
-        <div class="grid gap-12 md:grid-cols-2">
-          <div class="rounded-3xl border border-primary/20 bg-secondary/70 p-8 shadow-panel">
-            <h3 class="text-lg font-semibold text-light">Vision 愿景</h3>
-            <p class="mt-4 text-sm text-accent/70">
-              成为亚洲最可信赖的AI农业科技集团，以精准的数据体系与绿色生态标准，塑造未来食品产业的新范式。
-            </p>
-          </div>
-          <div class="rounded-3xl border border-primary/20 bg-secondary/70 p-8 shadow-panel">
-            <h3 class="text-lg font-semibold text-light">Mission 使命</h3>
-            <p class="mt-4 text-sm text-accent/70">
-              将AI算法、遗传科学、智能硬件与生态农业融合，持续提升生产效率、动物福利与可持续价值，实现农业的智慧化进化。
-            </p>
-          </div>
-        </div>
-        <div class="rounded-[32px] border border-accent/20 bg-secondary/70 p-10 shadow-panel">
-          <h3 class="text-lg font-semibold text-light">价值体系 Long-term Values</h3>
-          <div class="mt-6 grid gap-6 md:grid-cols-3">
-            <div class="rounded-2xl border border-primary/15 bg-secondary/80 p-6">
-              <p class="text-xs uppercase tracking-[0.35em] text-primary/70">Precision</p>
-              <p class="mt-4 text-sm text-accent/70">以数据驱动的精准策略管理基因、生产与供应链。</p>
-            </div>
-            <div class="rounded-2xl border border-primary/15 bg-secondary/80 p-6">
-              <p class="text-xs uppercase tracking-[0.35em] text-primary/70">Resilience</p>
-              <p class="mt-4 text-sm text-accent/70">构建可抵御疫情、气候与市场波动的系统化能力。</p>
-            </div>
-            <div class="rounded-2xl border border-primary/15 bg-secondary/80 p-6">
-              <p class="text-xs uppercase tracking-[0.35em] text-primary/70">Sustainability</p>
-              <p class="mt-4 text-sm text-accent/70">通过绿色生态基地与循环农业实现长远价值。</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Technology -->
-      <section id="technology" class="section-width space-y-10">
-        <div class="space-y-3">
-          <p class="text-xs uppercase tracking-[0.5em] text-primary/70">AI × Agriculture Platform</p>
-          <h2 class="text-3xl font-semibold">技术体系：AI育种 + ASSA操作系统 + 数据农场</h2>
-          <p class="max-w-3xl text-sm text-accent/70">
-            我们的技术栈以AI辅助育种模型为核心，通过ASSA智慧农场操作系统将数据与执行力连接，最终沉淀为高效的数字化农场管理。
+          <p class="mt-2 text-sm text-secondary/60">
+            地址：福建省福州市数字农业示范区 88 号 · Futuristic Agricultural Innovation Campus
           </p>
-        </div>
-        <div class="grid gap-10 lg:grid-cols-[1fr_1fr]">
-          <div class="rounded-[32px] border border-primary/20 bg-secondary/70 p-8 shadow-panel">
-            <h3 class="text-lg font-semibold">AI辅助育种体系</h3>
-            <ul class="mt-6 space-y-4 text-sm text-accent/70">
-              <li>• 多组学数据融合，实时评估遗传潜力。</li>
-              <li>• AI育种指数动态更新，实现双阴群体迭代。</li>
-              <li>• 生物安全策略嵌入模型，降低疫病风险。</li>
-            </ul>
-          </div>
-          <div class="rounded-[32px] border border-primary/20 bg-secondary/70 p-8 shadow-panel">
-            <h3 class="text-lg font-semibold">ASSA智慧农牧操作系统</h3>
-            <ul class="mt-6 space-y-4 text-sm text-accent/70">
-              <li>• 全栈数据采集：生产、环境、健康、财务。</li>
-              <li>• 决策引擎支持预测性维护与情景模拟。</li>
-              <li>• 可视化驾驶舱提供即时运营洞察。</li>
-            </ul>
-          </div>
-        </div>
-        <div class="rounded-[32px] border border-ai/30 bg-gradient-ai p-10 shadow-panel">
-          <h3 class="text-lg font-semibold">数据驱动的农场管理</h3>
-          <div class="mt-6 grid gap-6 md:grid-cols-3">
-            <div class="rounded-2xl border border-primary/20 bg-secondary/80 p-6 text-sm text-accent/70">
-              <p class="text-xs uppercase tracking-[0.35em] text-primary/70">Digital Twin</p>
-              <p class="mt-4">IoT传感器构建农场数字孪生，实现实时预警。</p>
-            </div>
-            <div class="rounded-2xl border border-primary/20 bg-secondary/80 p-6 text-sm text-accent/70">
-              <p class="text-xs uppercase tracking-[0.35em] text-primary/70">Automation</p>
-              <p class="mt-4">智能执行器联动，实现饲喂、环境与健康管理自动化。</p>
-            </div>
-            <div class="rounded-2xl border border-primary/20 bg-secondary/80 p-6 text-sm text-accent/70">
-              <p class="text-xs uppercase tracking-[0.35em] text-primary/70">ESG Metrics</p>
-              <p class="mt-4">碳、水、能耗实时监控，支持ESG合规与报告。</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Genetics -->
-      <section id="genetics" class="section-width space-y-10">
-        <div class="space-y-3">
-          <p class="text-xs uppercase tracking-[0.5em] text-primary/70">源种科技 Zhengshi Genetics</p>
-          <h2 class="text-3xl font-semibold">纯种体系与年度产能</h2>
-        </div>
-        <div class="grid gap-10 lg:grid-cols-[1fr_1fr]">
-          <div class="rounded-3xl border border-primary/20 bg-secondary/70 p-8 shadow-panel">
-            <h3 class="text-lg font-semibold">GGP 双阴核心群</h3>
-            <p class="mt-4 text-sm text-accent/70">
-              结合美国Cedarridge与ACU Fast血统，构建蓝耳/非瘟双阴遗传库，实现高繁殖力与强健体质的均衡提升。
-            </p>
-            <ul class="mt-6 space-y-3 text-sm text-accent/60">
-              <li>• 核心群健康指数达99.8%</li>
-              <li>• 年度核心母猪更新率 35%</li>
-              <li>• AI胚系筛选覆盖率 92%</li>
-            </ul>
-          </div>
-          <div class="rounded-3xl border border-primary/20 bg-secondary/70 p-8 shadow-panel">
-            <h3 class="text-lg font-semibold">年度产能</h3>
-            <div class="mt-6 grid gap-4 md:grid-cols-2">
-              <div class="rounded-2xl border border-primary/15 bg-secondary/80 p-6">
-                <p class="text-xs uppercase tracking-[0.35em] text-primary/70">AI Gilt</p>
-                <p class="mt-3 text-2xl font-semibold">65K</p>
-                <p class="text-xs text-accent/60">高健康商品母猪</p>
-              </div>
-              <div class="rounded-2xl border border-primary/15 bg-secondary/80 p-6">
-                <p class="text-xs uppercase tracking-[0.35em] text-primary/70">Duroc Sire</p>
-                <p class="mt-3 text-2xl font-semibold">18K</p>
-                <p class="text-xs text-accent/60">AI精选公猪剂</p>
-              </div>
-              <div class="rounded-2xl border border-primary/15 bg-secondary/80 p-6">
-                <p class="text-xs uppercase tracking-[0.35em] text-primary/70">Embryo Bank</p>
-                <p class="mt-3 text-2xl font-semibold">12 TB</p>
-                <p class="text-xs text-accent/60">遗传数据与胚胎库</p>
-              </div>
-              <div class="rounded-2xl border border-primary/15 bg-secondary/80 p-6">
-                <p class="text-xs uppercase tracking-[0.35em] text-primary/70">Bio-Security</p>
-                <p class="mt-3 text-2xl font-semibold">双阴</p>
-                <p class="text-xs text-accent/60">蓝耳/非瘟连续净化</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Smart OS -->
-      <section id="smart" class="section-width space-y-10">
-        <div class="space-y-3">
-          <p class="text-xs uppercase tracking-[0.5em] text-primary/70">ASSA Smart Farming OS</p>
-          <h2 class="text-3xl font-semibold">智慧农牧操作系统</h2>
-        </div>
-        <div class="grid gap-10 lg:grid-cols-[1.1fr_1fr]">
-          <div class="rounded-3xl border border-primary/20 bg-secondary/70 p-10 shadow-panel">
-            <div class="flex flex-wrap items-center justify-between gap-4">
-              <h3 class="text-lg font-semibold">数字驾驶舱界面</h3>
-              <span class="rounded-full border border-primary/30 px-4 py-1 text-[0.65rem] uppercase tracking-[0.35em] text-primary">Live Mock</span>
-            </div>
-            <div class="mt-8 grid gap-4 rounded-3xl border border-accent/20 bg-secondary/80 p-6">
-              <div class="grid grid-cols-4 gap-4 text-xs text-accent/70">
-                <div class="rounded-xl border border-primary/15 bg-secondary/90 p-4">
-                  <p class="text-primary/80">Predictive</p>
-                  <p class="mt-2 text-lg font-semibold text-light">92%</p>
-                  <p class="text-[10px] text-accent/50">产能预测准确度</p>
-                </div>
-                <div class="rounded-xl border border-primary/15 bg-secondary/90 p-4">
-                  <p class="text-primary/80">Operation</p>
-                  <p class="mt-2 text-lg font-semibold text-light">88%</p>
-                  <p class="text-[10px] text-accent/50">设备稼动率</p>
-                </div>
-                <div class="rounded-xl border border-primary/15 bg-secondary/90 p-4">
-                  <p class="text-primary/80">Health</p>
-                  <p class="mt-2 text-lg font-semibold text-light">99%</p>
-                  <p class="text-[10px] text-accent/50">群体健康指数</p>
-                </div>
-                <div class="rounded-xl border border-primary/15 bg-secondary/90 p-4">
-                  <p class="text-primary/80">Cost</p>
-                  <p class="mt-2 text-lg font-semibold text-light">-12%</p>
-                  <p class="text-[10px] text-accent/50">运营成本波动</p>
-                </div>
-              </div>
-              <div class="grid gap-3 md:grid-cols-2">
-                <div class="rounded-2xl border border-ai/30 bg-gradient-ai p-4">
-                  <p class="text-xs uppercase tracking-[0.35em] text-ai/80">AI Scenario Engine</p>
-                  <p class="mt-3 text-sm text-accent/80">对极端天气、疫病爆发进行多场景模拟，并输出最优响应策略。</p>
-                </div>
-                <div class="rounded-2xl border border-ai/30 bg-gradient-ai p-4">
-                  <p class="text-xs uppercase tracking-[0.35em] text-ai/80">Autonomous Tasks</p>
-                  <p class="mt-3 text-sm text-accent/80">联动机器人执行饲喂、巡检、环境调控等自动化任务。</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="space-y-6">
-            <div class="rounded-3xl border border-primary/20 bg-secondary/70 p-6 shadow-panel">
-              <h3 class="text-lg font-semibold">算法描述</h3>
-              <p class="mt-3 text-sm text-accent/70">
-                基于强化学习与时序预测模型的混合架构，实时优化生产节奏、环境参数与资源投入，实现智能闭环运营。
-              </p>
-            </div>
-            <div class="rounded-3xl border border-primary/20 bg-secondary/70 p-6 shadow-panel">
-              <h3 class="text-lg font-semibold">核心模块</h3>
-              <ul class="mt-4 space-y-3 text-sm text-accent/70">
-                <li>• Prediction Lab 预测实验室</li>
-                <li>• Operation Orchestrator 运营指挥</li>
-                <li>• Health Guardian 健康守护</li>
-                <li>• Cost Efficiency Matrix 成本效率矩阵</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Green Farm -->
-      <section id="green" class="section-width space-y-10">
-        <div class="space-y-3">
-          <p class="text-xs uppercase tracking-[0.5em] text-primary/70">Green Farm Ecology</p>
-          <h2 class="text-3xl font-semibold">泰宁绿色生态基地</h2>
-        </div>
-        <div class="rounded-[32px] border border-primary/20 bg-secondary/70 p-10 shadow-panel">
-          <div class="grid gap-10 md:grid-cols-[1.1fr_1fr]">
-            <div>
-              <h3 class="text-lg font-semibold text-light">无抗、绿色、可持续体系</h3>
-              <p class="mt-4 text-sm text-accent/70">
-                泰宁基地位于闽西北山地，以原生林地和山泉水系构建生态缓冲区。基地实施“零抗生素成长、天然饲料配方、循环农业能源”的三重策略。
-              </p>
-              <ul class="mt-6 grid gap-3 text-sm text-accent/70 md:grid-cols-2">
-                <li class="rounded-2xl border border-primary/15 bg-secondary/80 p-4">再生能源发电覆盖 82%</li>
-                <li class="rounded-2xl border border-primary/15 bg-secondary/80 p-4">固液分离系统回收率 91%</li>
-                <li class="rounded-2xl border border-primary/15 bg-secondary/80 p-4">生态缓冲湿地面积 26hm²</li>
-                <li class="rounded-2xl border border-primary/15 bg-secondary/80 p-4">碳排放强度下降 37%</li>
-              </ul>
-            </div>
-            <div class="rounded-3xl border border-ai/30 bg-gradient-ai p-6">
-              <p class="text-xs uppercase tracking-[0.35em] text-ai/80">Bio-Security Protocol</p>
-              <p class="mt-3 text-sm text-accent/70">
-                双重检疫区、空气过滤系统及智能门禁体系，确保外源病原零引入；同时以AI监测行为异常，提前预警健康风险。
-              </p>
-              <p class="mt-4 text-sm text-accent/70">
-                与高校合作构建生态模型，实时追踪土壤微生物与水质指标，为可持续农业提供量化依据。
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- News -->
-      <section id="news" class="section-width space-y-10">
-        <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-          <div>
-            <p class="text-xs uppercase tracking-[0.5em] text-primary/70">News & Insights</p>
-            <h2 class="text-3xl font-semibold">集团动态 / 科技文章</h2>
-          </div>
-          <div class="flex flex-wrap gap-3 text-[0.65rem] uppercase tracking-[0.35em] text-accent/60">
-            <span class="rounded-full border border-primary/30 px-4 py-2 text-primary">Tech</span>
-            <span class="rounded-full border border-accent/30 px-4 py-2">Research</span>
-            <span class="rounded-full border border-accent/30 px-4 py-2">Group</span>
-            <span class="rounded-full border border-accent/30 px-4 py-2">Market</span>
-          </div>
-        </div>
-        <div class="grid gap-8 md:grid-cols-3">
-          <article class="rounded-3xl border border-primary/20 bg-secondary/70 p-6 shadow-panel">
-            <p class="text-[0.65rem] uppercase tracking-[0.35em] text-primary/70">Tech</p>
-            <h3 class="mt-4 text-lg font-semibold text-light">AI胚系选择引擎升级</h3>
-            <p class="mt-3 text-sm text-accent/70">结合多组学模型与群体表现数据，实现育种周期缩短 18%。</p>
-            <p class="mt-6 text-xs text-accent/50">2025-04-28</p>
-          </article>
-          <article class="rounded-3xl border border-primary/20 bg-secondary/70 p-6 shadow-panel">
-            <p class="text-[0.65rem] uppercase tracking-[0.35em] text-primary/70">Research</p>
-            <h3 class="mt-4 text-lg font-semibold text-light">蓝耳/非瘟双阴研究白皮书</h3>
-            <p class="mt-3 text-sm text-accent/70">与国家动物健康实验室联合发布，实现跨基地净化验证。</p>
-            <p class="mt-6 text-xs text-accent/50">2025-04-12</p>
-          </article>
-          <article class="rounded-3xl border border-primary/20 bg-secondary/70 p-6 shadow-panel">
-            <p class="text-[0.65rem] uppercase tracking-[0.35em] text-primary/70">Group</p>
-            <h3 class="mt-4 text-lg font-semibold text-light">泰宁生态基地碳中和里程碑</h3>
-            <p class="mt-3 text-sm text-accent/70">通过能源回收与碳汇林建设，实现阶段性碳中和。</p>
-            <p class="mt-6 text-xs text-accent/50">2025-03-30</p>
-          </article>
-        </div>
-      </section>
-
-      <!-- Careers -->
-      <section id="careers" class="section-width space-y-10">
-        <div class="space-y-3">
-          <p class="text-xs uppercase tracking-[0.5em] text-primary/70">加入我们 Careers</p>
-          <h2 class="text-3xl font-semibold">与顶尖跨学科团队共创未来农业</h2>
-        </div>
-        <div class="grid gap-10 lg:grid-cols-[1.1fr_1fr]">
-          <div class="rounded-3xl border border-primary/20 bg-secondary/70 p-8 shadow-panel">
-            <h3 class="text-lg font-semibold">文化与价值观</h3>
-            <p class="mt-4 text-sm text-accent/70">
-              我们崇尚科学精神、极致体验与系统化思考。跨学科协作贯穿遗传科学、AI工程、生态环境与供应链管理。
-            </p>
-            <ul class="mt-6 space-y-3 text-sm text-accent/70">
-              <li>• 科学验证 · 数据透明</li>
-              <li>• 用户中心 · 场景驱动</li>
-              <li>• 可持续价值 · ESG共创</li>
-            </ul>
-          </div>
-          <div class="space-y-6">
-            <div class="rounded-3xl border border-primary/20 bg-secondary/70 p-6 shadow-panel">
-              <h3 class="text-lg font-semibold">开放职位</h3>
-              <div class="mt-4 space-y-4 text-sm text-accent/70">
-                <div class="rounded-2xl border border-primary/15 bg-secondary/80 p-4">
-                  <p class="font-semibold text-light">AI遗传算法科学家</p>
-                  <p class="text-xs text-accent/50">Shanghai · Genetics Lab</p>
-                </div>
-                <div class="rounded-2xl border border-primary/15 bg-secondary/80 p-4">
-                  <p class="font-semibold text-light">智慧农场系统架构师</p>
-                  <p class="text-xs text-accent/50">Hangzhou · ASSA OS</p>
-                </div>
-                <div class="rounded-2xl border border-primary/15 bg-secondary/80 p-4">
-                  <p class="font-semibold text-light">生态基地运营经理</p>
-                  <p class="text-xs text-accent/50">Fujian Taining · Green Farm</p>
-                </div>
-              </div>
-            </div>
-            <div class="rounded-3xl border border-primary/20 bg-secondary/70 p-6 shadow-panel">
-              <p class="text-sm text-accent/70">
-                联系 talent@zhengshi.ai 或扫描下方二维码提交简历。我们欢迎每一位对未来农业充满想象力的伙伴。
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Contact -->
-      <section id="contact" class="section-width space-y-10">
-        <div class="space-y-3">
-          <p class="text-xs uppercase tracking-[0.5em] text-primary/70">联系我们 Contact</p>
-          <h2 class="text-3xl font-semibold">连接郑氏农业科技集团</h2>
-        </div>
-        <div class="grid gap-12 lg:grid-cols-[1.1fr_1fr]">
-          <form class="space-y-4 rounded-3xl border border-primary/20 bg-secondary/70 p-8 shadow-panel">
-            <div>
-              <label class="text-xs uppercase tracking-[0.35em] text-accent/60">Name 姓名</label>
-              <input type="text" placeholder="Zheng / 王" class="mt-2 w-full rounded-2xl border border-accent/20 bg-secondary/90 px-4 py-3 text-sm focus:border-primary focus:outline-none" />
-            </div>
-            <div class="grid gap-4 md:grid-cols-2">
-              <div>
-                <label class="text-xs uppercase tracking-[0.35em] text-accent/60">Email 邮箱</label>
-                <input type="email" placeholder="team@domain.com" class="mt-2 w-full rounded-2xl border border-accent/20 bg-secondary/90 px-4 py-3 text-sm focus:border-primary focus:outline-none" />
-              </div>
-              <div>
-                <label class="text-xs uppercase tracking-[0.35em] text-accent/60">Company 公司</label>
-                <input type="text" placeholder="Organization" class="mt-2 w-full rounded-2xl border border-accent/20 bg-secondary/90 px-4 py-3 text-sm focus:border-primary focus:outline-none" />
-              </div>
-            </div>
-            <div>
-              <label class="text-xs uppercase tracking-[0.35em] text-accent/60">Message 信息</label>
-              <textarea rows="4" placeholder="合作需求 / 项目简介" class="mt-2 w-full rounded-2xl border border-accent/20 bg-secondary/90 px-4 py-3 text-sm focus:border-primary focus:outline-none"></textarea>
-            </div>
-            <button type="submit" class="w-full rounded-full bg-primary py-3 text-xs font-semibold uppercase tracking-[0.35em] text-secondary shadow-glow">
-              提交信息
-            </button>
-          </form>
-          <div class="space-y-6">
-            <div class="rounded-3xl border border-primary/20 bg-secondary/70 p-6 shadow-panel">
-              <h3 class="text-lg font-semibold">集团总部</h3>
-              <p class="mt-3 text-sm text-accent/70">上海市浦东新区张江科学城 · Zhengshi AI Agriculture Campus</p>
-              <p class="mt-3 text-sm text-accent/60">电话：+86 21 8899 6600</p>
-              <p class="text-sm text-accent/60">邮箱：hello@zhengshi.ai</p>
-            </div>
-            <div class="rounded-3xl border border-ai/30 bg-gradient-ai p-6">
-              <h3 class="text-lg font-semibold text-light">Global Map</h3>
-              <div class="mt-4 h-48 rounded-2xl border border-accent/20 bg-[radial-gradient(circle_at_center,_rgba(74,168,255,0.22),_rgba(27,29,31,0.9))]"></div>
-              <p class="mt-3 text-xs text-accent/60">Placeholder map · 预计2026年上线全球基地数据。</p>
-            </div>
-          </div>
         </div>
       </section>
     </main>
-
-    <footer class="border-t border-white/5 bg-secondary/80 py-12">
-      <div class="section-width grid gap-8 md:grid-cols-[2fr_1fr]">
-        <div class="space-y-4 text-sm text-accent/60">
-          <p class="text-light">郑氏农业科技集团 Zhengshi AgriTech Group</p>
-          <p>以科技重塑农业未来 · AI Genetics · Smart Farming OS · Green Ecology</p>
-          <p>© 2025 Zhengshi AgriTech Group. All rights reserved.</p>
-        </div>
-        <div class="grid gap-2 text-sm text-accent/60">
-          <a href="#vision" class="transition hover:text-primary">愿景使命</a>
-          <a href="#technology" class="transition hover:text-primary">AI × Agriculture Platform</a>
-          <a href="#careers" class="transition hover:text-primary">加入我们</a>
-          <a href="#contact" class="transition hover:text-primary">联系我们</a>
-        </div>
-      </div>
-    </footer>
   </body>
 </html>

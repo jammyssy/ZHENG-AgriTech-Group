@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  color-scheme: dark light;
+  color-scheme: only light;
 }
 
 html {
@@ -11,63 +11,87 @@ html {
 }
 
 body {
-  @apply bg-secondary text-light font-sans antialiased; 
-  background-image: linear-gradient(160deg, rgba(69, 193, 161, 0.08), rgba(10, 17, 20, 0.95));
+  @apply min-h-screen bg-background font-sans text-secondary antialiased;
 }
 
 a {
   @apply transition-colors duration-200;
 }
 
+::selection {
+  @apply bg-primary/20 text-secondary;
+}
+
 .section-container {
   @apply mx-auto w-full max-w-6xl px-6 py-20 md:py-24;
 }
 
-h1, h2, h3, h4 {
-  @apply font-display;
+h1,
+h2,
+h3,
+h4 {
+  @apply font-display text-secondary;
 }
 
-.gradient-border {
-  position: relative;
-  border-radius: 24px;
-  background: rgba(19, 22, 26, 0.8);
-}
+@layer components {
+  .kicker {
+    @apply text-xs uppercase tracking-[0.35em] text-secondary/50;
+  }
 
-.gradient-border::before {
-  content: "";
-  position: absolute;
-  inset: -1px;
-  background: linear-gradient(135deg, rgba(69,193,161,0.6), rgba(74,168,255,0.6));
-  z-index: -1;
-  border-radius: 26px;
-  filter: blur(6px);
-  opacity: 0.7;
-}
+  .hero-panel {
+    @apply relative overflow-hidden rounded-[2.25rem] border border-accent/40 bg-white p-10 shadow-soft transition-shadow md:p-16;
+  }
 
-.glass-panel {
-  backdrop-filter: blur(14px);
-  background: rgba(24, 29, 33, 0.72);
-  border: 1px solid rgba(169, 181, 201, 0.18);
-}
+  .hero-panel::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: theme("backgroundImage.hero-accent");
+    opacity: 0.8;
+    pointer-events: none;
+  }
 
-.data-grid {
-  background: radial-gradient(circle at 20% 20%, rgba(74, 168, 255, 0.08), transparent 55%),
-    radial-gradient(circle at 80% 30%, rgba(69, 193, 161, 0.08), transparent 45%),
-    linear-gradient(135deg, rgba(17, 25, 32, 0.9), rgba(14, 20, 25, 0.95));
-  border: 1px solid rgba(169, 181, 201, 0.15);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+  .hero-panel > * {
+    position: relative;
+    z-index: 10;
+  }
+
+  .data-pill {
+    @apply inline-flex items-center gap-2 rounded-full border border-accent/50 bg-white/80 px-4 py-2 text-xs uppercase tracking-[0.3em] text-secondary/70 shadow-subtle;
+  }
+
+  .stat-card {
+    @apply rounded-3xl border border-accent/40 bg-white p-6 shadow-subtle transition-transform hover:-translate-y-1;
+  }
+
+  .surface-card {
+    @apply rounded-[2rem] border border-accent/40 bg-white p-10 shadow-soft;
+  }
+
+  .grid-card {
+    @apply rounded-3xl border border-accent/30 bg-white/90 p-8 shadow-subtle;
+  }
+
+  .divider-line {
+    @apply h-px w-full bg-[length:100%_1px] bg-[position:center] bg-no-repeat;
+    background-image: theme("backgroundImage.divider-fade");
+  }
+
+  .section-subtitle {
+    @apply max-w-3xl text-base text-secondary/70;
+  }
 }
 
 .floating-cta {
   position: fixed;
-  bottom: 2.5rem;
-  right: 2.5rem;
+  right: 2rem;
+  bottom: 2rem;
   z-index: 50;
 }
 
 @media (max-width: 768px) {
   .floating-cta {
-    bottom: 1.5rem;
-    right: 1.5rem;
+    right: 1.25rem;
+    bottom: 1.25rem;
   }
 }
