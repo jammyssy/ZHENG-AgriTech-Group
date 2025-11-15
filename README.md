@@ -6,6 +6,8 @@ This repository contains the complete Next.js + Tailwind CSS codebase for **Zhen
 - [Next.js 14 (App Router)](https://nextjs.org/)
 - [React 18](https://react.dev/)
 - [Tailwind CSS 3](https://tailwindcss.com/)
+- [Framer Motion](https://www.framer.com/motion/)
+
 
 ## 📂 Project Structure
 ```
@@ -48,6 +50,14 @@ This repository contains the complete Next.js + Tailwind CSS codebase for **Zhen
 - **Symptoms**: Earlier revisions of this codebase showed a Next.js server error with the stack trace pointing to `framer-motion/dist` and the message `_react__WEBPACK_IMPORTED_MODULE__...createContext is not a function`.
 - **Cause**: The homepage (`app/page.tsx`) previously rendered Framer Motion animations. In the App Router, pages are Server Components by default, and the server runtime only exposes a limited React API without `createContext`. Importing Framer Motion from a Server Component triggered the error.
 - **Resolution**: The project now relies on CSS-driven transitions instead of Framer Motion, eliminating the server/runtime mismatch. If you pulled an older install, remove `node_modules` and reinstall dependencies to ensure the updated package set is used.
+
+
+odex/build-complete-website-for-zhengshi-agritech-group-exs3uz
+### Common Issue: `createContext is not a function`
+- **Symptoms**: When running `npm run dev`, the browser shows a Next.js server error with the stack trace pointing to `framer-motion/dist` and the message `_react__WEBPACK_IMPORTED_MODULE__...createContext is not a function`.
+- **Cause**: The homepage (`app/page.tsx`) renders Framer Motion animations. In the App Router, pages are Server Components by default, and the server runtime only exposes a limited React API without `createContext`. Importing Framer Motion from a Server Component triggers this error.
+- **Resolution**: Mark the homepage as a Client Component by placing a top-level `"use client";` directive before its imports. This repository already includes the fix so the development server can run normally locally.
+
 
 ## 🎨 Design System
 - **Colors**: Tech Agrigreen `#45C1A1`, Obsidian Black `#1B1D1F`, Stardust Silver `#A9B5C9`, AI Blue `#4AA8FF`, Light Mist `#F4F7F8`

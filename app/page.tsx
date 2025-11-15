@@ -1,8 +1,10 @@
+
 "use client";
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+
 import SectionTitle from "@/components/SectionTitle";
 
 const pillars = [
@@ -45,12 +47,14 @@ const whyCards = [
 const partners = ["SynBio Labs", "Future Farms", "AgriNet", "DeepAg", "Sino Green", "BioCompute"];
 
 export default function HomePage() {
+
   const [heroVisible, setHeroVisible] = useState(false);
 
   useEffect(() => {
     const frame = requestAnimationFrame(() => setHeroVisible(true));
     return () => cancelAnimationFrame(frame);
   }, []);
+
 
   return (
     <div className="space-y-32 pb-32">
@@ -61,6 +65,7 @@ export default function HomePage() {
             className={`max-w-3xl space-y-6 transition-all duration-700 ease-out ${
               heroVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
             }`}
+
           >
             <p className="text-sm uppercase tracking-[0.5em] text-accent/80">
               AI × AGRICULTURE FUTURES
