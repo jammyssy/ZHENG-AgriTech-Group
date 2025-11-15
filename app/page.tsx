@@ -1,10 +1,10 @@
 
 "use client";
 
-main
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+
 import SectionTitle from "@/components/SectionTitle";
 
 const pillars = [
@@ -47,16 +47,25 @@ const whyCards = [
 const partners = ["SynBio Labs", "Future Farms", "AgriNet", "DeepAg", "Sino Green", "BioCompute"];
 
 export default function HomePage() {
+
+  const [heroVisible, setHeroVisible] = useState(false);
+
+  useEffect(() => {
+    const frame = requestAnimationFrame(() => setHeroVisible(true));
+    return () => cancelAnimationFrame(frame);
+  }, []);
+
+
   return (
     <div className="space-y-32 pb-32">
       <section className="relative overflow-hidden pt-36">
         <div className="absolute inset-0 bg-gradient-ai" />
         <div className="relative section-container">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-3xl space-y-6"
+          <div
+            className={`max-w-3xl space-y-6 transition-all duration-700 ease-out ${
+              heroVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+            }`}
+
           >
             <p className="text-sm uppercase tracking-[0.5em] text-accent/80">
               AI × AGRICULTURE FUTURES
@@ -81,7 +90,7 @@ export default function HomePage() {
                 愿景使命
               </Link>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 

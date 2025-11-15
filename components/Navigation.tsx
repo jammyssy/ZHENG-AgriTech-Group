@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
 import clsx from "clsx";
 
 const navItems = [
@@ -77,36 +76,29 @@ export default function Navigation() {
           </button>
         </div>
       </nav>
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="lg:hidden"
-          >
-            <div className="glass-panel mx-6 mb-6 space-y-4 rounded-3xl p-8 text-base tracking-[0.1em] uppercase">
-              {navItems.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setOpen(false)}
-                  className="block rounded-full bg-secondary/50 px-6 py-3 text-center text-accent/80 transition hover:bg-primary/10 hover:text-primary"
-                >
-                  {item.label}
-                </Link>
-              ))}
+      {open && (
+        <div className="lg:hidden">
+          <div className="glass-panel mx-6 mb-6 space-y-4 rounded-3xl p-8 text-base tracking-[0.1em] uppercase transition-opacity duration-300 ease-out">
+            {navItems.map((item) => (
               <Link
-                href="/contact"
+                key={item.href}
+                href={item.href}
                 onClick={() => setOpen(false)}
-                className="block rounded-full bg-primary px-6 py-3 text-center font-semibold text-secondary"
+                className="block rounded-full bg-secondary/50 px-6 py-3 text-center text-accent/80 transition hover:bg-primary/10 hover:text-primary"
               >
-                联系我们
+                {item.label}
               </Link>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            ))}
+            <Link
+              href="/contact"
+              onClick={() => setOpen(false)}
+              className="block rounded-full bg-primary px-6 py-3 text-center font-semibold text-secondary"
+            >
+              联系我们
+            </Link>
+          </div>
+        </div>
+      )}
     </header>
   );
 }
